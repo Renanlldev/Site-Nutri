@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+:root {
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  /* Brand Palette */
+  --brand-brown: #3C2212;
+  --brand-brown-light: #5A3820;
+  --brand-orange: #E87722;
+  --brand-orange-hover: #D26414;
+  --brand-gold: #E5A93C;
+  --brand-cream: #FAF6F0;
+  --brand-cream-card: #FFFDF9;
+  --brand-green: #4E824A;
+  --brand-dark: #23160D;
+  --brand-muted: #706760;
+  --brand-border: #EADBCE;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--brand-dark);
+  background-color: var(--brand-cream);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F2ECE1;
+}
+::-webkit-scrollbar-thumb {
+  background: #D4C4B4;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-orange);
+}
+
+/* Typography Helpers */
+.font-serif-brand {
+  font-family: var(--font-serif);
+}
+
+/* Background Themes */
+.theme-organic_fruits {
+  background-color: #FAF6F0;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(232, 119, 34, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(78, 130, 74, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(229, 169, 60, 0.03) 0%, transparent 60%);
+}
+
+.theme-warm_waves {
+  background-color: #FAF4EB;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(245, 233, 218, 0.7) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(253, 245, 235, 0.9) 0px, transparent 50%);
+}
+
+.theme-clean_ivory {
+  background-color: #FCFAF6;
+  background-image: none;
+}
+
+.theme-soft_green {
+  background-color: #F4F7F3;
+  background-image: radial-gradient(circle at 50% 0%, rgba(78, 130, 74, 0.06) 0%, transparent 60%);
+}
+
+/* Organic Wave Shape Dividers */
+.organic-wave {
+  position: relative;
+  overflow: hidden;
+}
+
+.organic-wave::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: inherit;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+}
+
+/* Smooth Interactive Animations */
+.hover-lift {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px -8px rgba(60, 34, 18, 0.12);
+}
+
+/* Pulse animation for WhatsApp button */
+@keyframes soft-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+  }
+}
+
+.animate-soft-pulse {
+  animation: soft-pulse 2.2s infinite;
+}
